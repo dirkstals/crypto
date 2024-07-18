@@ -19,8 +19,18 @@ const password = "abc123-abc123-abc123";
 
     const decryptedBodyJS = await cryptoJSService.decrypt(encryptedBody);
     const decryptedBody = await cryptoService.decrypt(encryptedBodyJS);
-    console.log("decrypt with Crypto  :", decryptedBody);
     console.log("decrypt with CryptoJS:", decryptedBodyJS);
+    console.log("decrypt with Crypto  :", decryptedBody);
+
+    console.log("\n");
+
+    const succeeded =
+        encryptedBodyJS === encryptedBody && decryptedBody === decryptedBodyJS;
+    console.log(
+        !succeeded
+            ? "You've won! Congratulations."
+            : "No luck yet, please try again."
+    );
 
     console.log("\n");
 })();
